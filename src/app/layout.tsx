@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Lexend } from "next/font/google";
+import { Inter } from "next/font/google";
+
+import { Header } from "@/components/Header/header";
+import { Player } from "@/components/Player/player";
+
 import "../styles/globals.scss";
+import styles from "../styles/app.module.scss";
 
 const inter = Inter({ subsets: ["latin"], weight: "400" })
 
@@ -16,12 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <head>
-
-      </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className={styles.wrapper}>
+          <main>
+            <Header />
+            {children}
+          </main>
+          <Player />
+        </div>
+      </body>
     </html>
   );
 }
-
-//37:30
